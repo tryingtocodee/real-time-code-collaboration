@@ -4,7 +4,7 @@ import { Routes , Route } from "react-router";
 
 export default function App(){
   return (
-    <div className="text-3xl text-blue-300">
+    <div>
       <Routes>
         <Route path="/" element={<HomePage/>} /> 
         <Route path="editor/:roomId" element={<EditorPage/>} />
