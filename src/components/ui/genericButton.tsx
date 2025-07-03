@@ -1,6 +1,6 @@
 interface ButtonProps {
     text : string
-    onClick? : () => void
+    onClick? : (e : React.MouseEvent<HTMLButtonElement>) => any
     varientStyle : "primary" | "secondary"
     sizeStyle : "sm" | "md" | "lg"
 }

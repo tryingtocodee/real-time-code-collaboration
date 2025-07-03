@@ -11,6 +11,7 @@ interface FormProps {
 interface InputField {
     label : string
     placeholder : string
+    value : any
     onChange : (e : React.ChangeEvent<HTMLInputElement>) => void
 }
 
@@ -18,7 +19,7 @@ interface InputField {
 
 export default function GeneralForm(props: FormProps) {
   return (
-    <div className="flex flex-col px-4 py-6 bg-black rounded-lg shadow-md w-full max-w-md text-white">
+    <form className="flex flex-col px-4 py-6 bg-black rounded-lg shadow-md w-full max-w-md text-white">
       <div className="p-3 flex justify-center">{props.img}</div>
       <div className="p-3 text-center text-xl font-semibold">
         {props.headline}
@@ -29,6 +30,7 @@ export default function GeneralForm(props: FormProps) {
             <label className="mb-1 text-sm ">{item.label}</label>
             <input
               type="text"
+              value={item.value}
               onChange={item.onChange}
               placeholder={item.placeholder}
               className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
@@ -40,6 +42,6 @@ export default function GeneralForm(props: FormProps) {
       <div className="text-center text-sm text-white">
         {props.bottomText}
       </div>
-    </div>
+    </form>
   );
 }
