@@ -18,7 +18,7 @@ export default function HomePage() {
         toast.success("created room")
     }
 
-    function joinRoom(e :React.MouseEvent<HTMLButtonElement>){
+    function joinRoom(e : React.MouseEvent<HTMLButtonElement>){
         e.preventDefault()
         if(!roomId || !username){
             toast.error("roomid and username is required")
@@ -32,18 +32,26 @@ export default function HomePage() {
         })
     }
 
+    function handleKeyEnter(e : React.KeyboardEvent<HTMLInputElement>){
+        if(e.code === 'Enter'){
+            console.log('event' , e.code)
+            joinRoom(e  as any)
+        }
+    }
     const inputFields = [
         {
             label: "roomId",
             placeholder: "Add Room Id",
             value: roomId,
-            onChange: (e: React.ChangeEvent<HTMLInputElement>) => setRoomId(e.target.value)
+            onChange: (e: React.ChangeEvent<HTMLInputElement>) => setRoomId(e.target.value),
+            onKeyUp : handleKeyEnter
         },
         {
             label: "Username",
             placeholder: "Add username",
             value: username,
-            onChange: (e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)
+            onChange: (e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value),
+            onKeyUp : handleKeyEnter
         }
     ]
 

@@ -13,6 +13,7 @@ interface InputField {
     placeholder : string
     value : any
     onChange : (e : React.ChangeEvent<HTMLInputElement>) => void
+    onKeyUp : (e : React.KeyboardEvent<HTMLInputElement>) => void
 }
 
 
@@ -32,6 +33,7 @@ export default function GeneralForm(props: FormProps) {
               type="text"
               value={item.value}
               onChange={item.onChange}
+              onKeyUp={item.onKeyUp}
               placeholder={item.placeholder}
               className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
             />
